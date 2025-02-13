@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - View Users</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Registered Users</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
+            <th>Purpose</th>
+        </tr>
+        </thead>
+        <tbody id="users-tbody">
+        </tbody>
+    </table>
+</div>
+
+<script>
+    let users = [
+        { username: 'user1', email: 'user1@example.com', phone: '1234567890', company: 'Company1', purpose: 'Purpose1' },
+        { username: 'user2', email: 'user2@example.com', phone: '0987654321', company: 'Company2', purpose: 'Purpose2' }
+    ];
+
+    function fetchUsers() {
+        const tbody = document.getElementById('users-tbody');
+        tbody.innerHTML = '';
+        users.forEach(user => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${user.username}</td>
+                <td>${user.email}</td>
+                <td>${user.phone}</td>
+                <td>${user.company}</td>
+                <td>${user.purpose}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    window.onload = fetchUsers;
+</script>
+
+</body>
+</html>
